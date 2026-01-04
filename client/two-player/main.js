@@ -6,7 +6,7 @@ var P_pre = document.querySelector("#player1");
 var E_pre = document.querySelector("#player2");
 
 var character = document.querySelector(".table");
-var backgrounds = document.querySelector(".backgrounds");
+var backgroundsDiv = document.querySelector(".backgrounds");
 var names = document.querySelector(".names");
 var start = document.querySelector(".start");
 var images = document.querySelectorAll(".images");
@@ -135,7 +135,7 @@ window.onload = () => {
   window.screenY = 0;
   state = "char";
   character.style.display = "block";
-  backgrounds.style.display = "none";
+  backgroundsDiv.style.display = "none";
   names.style.display = "none";
   start.style.display = "none";
 };
@@ -143,10 +143,10 @@ window.onload = () => {
 function go() {
   if (state === "char") {
     character.style.display = "none";
-    backgrounds.style.display = "block";
+    backgroundsDiv.style.display = "block";
     state = "back";
   } else if (state === "back") {
-    backgrounds.style.display = "none";
+    backgroundsDiv.style.display = "none";
     names.style.display = "block";
     start.style.display = "block";
     state = "name";
@@ -155,13 +155,13 @@ function go() {
 
 function back() {
   if (state === "name") {
-    backgrounds.style.display = "block";
+    backgroundsDiv.style.display = "block";
     names.style.display = "none";
     start.style.display = "none";
     state = "back";
   } else if (state === "back") {
     character.style.display = "block";
-    backgrounds.style.display = "none";
+    backgroundsDiv.style.display = "none";
     state = "char";
   }
 }

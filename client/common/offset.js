@@ -1,4 +1,4 @@
-// Define the offsets in a structured object
+
 const offsets = {
   roof: {
     "Evil wizard": 270,
@@ -52,9 +52,16 @@ const offsets = {
 
 function offset() {
   const defaultOffset = 0;
-
-  const backgroundOffsets = offsets[background_use.name] || {};
-  const playerOffset = backgroundOffsets[player_use.name] || defaultOffset;
-
-  player_use.offset.y = playerOffset;
+  if (typeof background_use !== 'undefined' && typeof player_use !== 'undefined') {
+    const backgroundOffsets = offsets[background_use.name] || {};
+    const playerOffset = backgroundOffsets[player_use.name] || defaultOffset;
+    player_use.offset.y = playerOffset;
+  }
+  
+  // Handle enemy offset if defined
+  if (typeof background_use !== 'undefined' && typeof enemy_use !== 'undefined') {
+    const backgroundOffsets = offsets[background_use.name] || {};
+    const enemyOffset = backgroundOffsets[enemy_use.name] || defaultOffset;
+    enemy_use.offset.y = enemyOffset;
+  }
 }
